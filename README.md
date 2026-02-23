@@ -6,6 +6,10 @@ A multi-page React + TypeScript application built as an assignment submission. J
 
 Deployed on Vercel — [jotish-assignment-submission.vercel.app](https://jotish-assignment-submission.vercel.app)
 
+## Explanatory Video
+
+[Watch on Google Drive](https://drive.google.com/file/d/1SnRpsHAr9k-TCQX63LcEZbKHpCKW3hC9/view?usp=drive_link)
+
 ---
 
 ## Features
