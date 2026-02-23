@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { BRAND } from "../constants";
+import { isAuthenticated } from "../utils/auth";
 
 const taskImages = [
   "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=900&q=80",
@@ -48,7 +49,9 @@ function LandingHero() {
 
           <button
             type="button"
-            onClick={() => navigate("/signin")}
+            onClick={() =>
+              navigate(isAuthenticated() ? "/dashboard" : "/signin")
+            }
             className="mt-8 w-fit rounded-xl bg-slate-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
           >
             Get Started
