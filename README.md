@@ -1,73 +1,120 @@
-# React + TypeScript + Vite
+# Jotish — Astrology Insights Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A multi-page React + TypeScript application built as an assignment submission. Jotish lets users explore employee data through an astrology-themed interface with live charts, an interactive map, and an in-app camera capture feature.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deployed on Vercel — [jotish-assignment-submission.vercel.app](https://jotish-assignment-submission.vercel.app)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **Landing Page** — Astrology-themed hero with an infinite-scroll image gallery. Redirects logged-in users straight to Dashboard.
+- **Sign In** — Credential-based auth using environment variables. Session stored in `sessionStorage`.
+- **Dashboard** — Fetches live employee data from a remote API. Includes live search/filter, and links to Charts and Map.
+- **Employee Details** — Per-employee profile page with a front-facing camera capture.
+- **Photo Result** — Displays the captured photo with a timestamp and a download option.
+- **Charts** — Three Recharts visualisations: salary bar chart, office distribution donut, and top roles horizontal bar.
+- **Map** — Interactive Leaflet map with city markers sized and coloured by employee count.
+- **404 Page** — Animated capybara loader with a friendly not-found message.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Layer      | Technology              |
+| ---------- | ----------------------- |
+| Framework  | React 19 + TypeScript   |
+| Build Tool | Vite 7                  |
+| Styling    | Tailwind CSS 4          |
+| Routing    | React Router DOM        |
+| Charts     | Recharts                |
+| Map        | React Leaflet + Leaflet |
+| Font       | Google Sans             |
+| Deployment | Vercel                  |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## Project Structure
+
+```
+src/
+├── assets/
+├── components/
+│   ├── CameraCapture.tsx
+│   ├── CapybaraLoader.tsx
+│   ├── LandingHero.tsx
+│   ├── Loader.tsx
+│   ├── NavBar.tsx
+│   └── ProtectedRoute.tsx
+├── constants/index.ts
+├── hooks/
+│   └── useEmployeeData.ts
+├── pages/
+│   ├── Charts.tsx
+│   ├── Dashboard.tsx
+│   ├── Details.tsx
+│   ├── Landing.tsx
+│   ├── Map.tsx
+│   ├── NotFound.tsx
+│   ├── PhotoResult.tsx
+│   └── SignIn.tsx
+├── types/index.ts
+├── utils/
+│   └── auth.ts
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/ConnectMayukh12/Jotish-Assignment-Submission.git
+cd Jotish-Assignment-Submission
+npm install
 ```
+
+### Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+VITE_VALID_USERNAME=testuser
+VITE_VALID_PASSWORD=Test123
+```
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## Deployment (Vercel)
+
+The repo includes a `vercel.json` that rewrites all routes to `index.html` for client-side routing:
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+Add your `VITE_VALID_USERNAME` and `VITE_VALID_PASSWORD` in **Vercel → Project → Settings → Environment Variables** before deploying.
