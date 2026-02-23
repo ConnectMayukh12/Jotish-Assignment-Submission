@@ -12,6 +12,30 @@ Deployed on Vercel — [jotish-assignment-submission.vercel.app](https://jotish-
 
 ---
 
+## Shared Snapshot:
+
+Landing Page:
+<img width="1903" height="1030" alt="image" src="https://github.com/user-attachments/assets/591874e6-5b9b-4dbe-adac-2de89a37ec28" />
+
+
+SignIn Page:
+<img width="1875" height="1032" alt="image" src="https://github.com/user-attachments/assets/e5424b43-b50b-42f0-a39d-0d1f86ebf3b7" />
+
+
+Dashboard Page:
+<img width="1880" height="1031" alt="image" src="https://github.com/user-attachments/assets/cbf5227f-da98-4c6c-8c44-32241036c786" />
+
+Map Insight Page:
+<img width="1888" height="1029" alt="image" src="https://github.com/user-attachments/assets/cbd78ec9-77cf-4296-8db3-f2ee20533520" />
+
+
+Analysis Page:
+<img width="1885" height="1032" alt="image" src="https://github.com/user-attachments/assets/4427194c-2406-4db6-b4aa-f477eee87603" />
+
+Employee details with snapshot taking Page:
+<img width="1865" height="1006" alt="image" src="https://github.com/user-attachments/assets/4e17fa83-4a54-45ee-96a0-d30e41363732" />
+
+
 ## Features
 
 - **Landing Page** — Astrology-themed hero with an infinite-scroll image gallery. Redirects logged-in users straight to Dashboard.
@@ -73,52 +97,4 @@ src/
 
 ---
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm
-
-### Installation
-
-```bash
-git clone https://github.com/ConnectMayukh12/Jotish-Assignment-Submission.git
-cd Jotish-Assignment-Submission
-npm install
-```
-
-### Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-VITE_VALID_USERNAME=testuser
-VITE_VALID_PASSWORD=Test123
-```
-
-### Run Locally
-
-```bash
-npm run dev
-```
-
-### Build for Production
-
-```bash
-npm run build
-```
-
----
-
-## Deployment (Vercel)
-
-The repo includes a `vercel.json` that rewrites all routes to `index.html` for client-side routing:
-
-```json
-{
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}
-```
-
-Add your `VITE_VALID_USERNAME` and `VITE_VALID_PASSWORD` in **Vercel → Project → Settings → Environment Variables** before deploying.
+Thanks
